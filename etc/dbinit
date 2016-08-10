@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+
+pushd `dirname $0` > /dev/null
+
+rm -f cloudbox.mv.db
+java -cp h2* org.h2.tools.RunScript -url jdbc:h2:./cloudbox -user cloudbox -password 'cloudbox' -script cloudbox.sql
+echo 'database inited!'
+
+popd > /dev/null
