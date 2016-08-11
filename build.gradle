@@ -9,12 +9,14 @@ apply plugin: 'idea'
 sourceCompatibility = 1.8
 
 repositories {
+    flatDir dirs: 'lib'
     jcenter()
     mavenCentral()
     //maven {url "http://maven.oschina.net/content/groups/public"}
 }
 
 dependencies {
+    compile name: 'vboxjws-5.1.2'
     compile('io.dropwizard:dropwizard-core:1.0.0')
     compile('io.dropwizard:dropwizard-assets:1.0.0')
     compile('io.dropwizard:dropwizard-db:1.0.0')
