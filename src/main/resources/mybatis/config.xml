@@ -9,6 +9,7 @@
 
     <mappers>
         <mapper class="org.cloudbox.console.dao.UserDAO"/>
+        <mapper class="org.cloudbox.console.dao.VboxHostDAO"/>
     </mappers>
 
 </configuration>
