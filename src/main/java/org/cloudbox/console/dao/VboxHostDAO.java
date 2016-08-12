@@ -15,14 +15,17 @@ public interface VboxHostDAO {
     @Select("SELECT * FROM vbox_host WHERE id = #{id}")
     VboxHost getVboxHostById(int id);
 
-    @Insert("INSERT INTO vbox_host (id, ip, port, name, desc) " +
-            "VALUES (#{id}, #{ip}, #{port}, #{name}, #{desc})")
-    @Options(useGeneratedKeys = true)
+    @Insert("INSERT INTO vbox_host (ip, port, user, passwd, tls, name, desc) " +
+            "VALUES (#{ip}, #{port}, #{user}, #{passwd}, #{tls}, #{name}, #{desc})")
+    @Options(useGeneratedKeys = true, keyColumn = "id")
     int createVboxHost(VboxHost host);
 
     @Update("UPDATE vbox_host SET " +
             "ip = #{ip}, " +
             "port = #{port}, " +
+            "user = #{user}, " +
+            "passwd = #{passwd}, " +
+            "tls = #{tls}, " +
             "name = #{name}, " +
             "desc = #{desc} " +
             "WHERE id = #{id}")

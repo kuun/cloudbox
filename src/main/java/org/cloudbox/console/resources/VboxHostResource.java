@@ -1,6 +1,5 @@
 package org.cloudbox.console.resources;
 
-import org.apache.ibatis.ognl.ListPropertyAccessor;
 import org.apache.ibatis.session.SqlSession;
 import org.cloudbox.console.api.VboxHost;
 import org.cloudbox.console.dao.VboxHostDAO;
@@ -21,14 +20,19 @@ public class VboxHostResource {
     private static final Logger log = LoggerFactory.getLogger(VboxHostResource.class);
 
     @GET
-    public Object query(@QueryParam("id") Integer id) {
+    @Path("/{id}")
+    public Object getVboxHost(@PathParam("id") Integer id) {
         try (SqlSession session = DB.getSqlSession(true)) {
             VboxHostDAO dao = session.getMapper(VboxHostDAO.class);
-            if (id == null) {
-                return dao.getVboxHosts();
-            } else {
-                return dao.getVboxHostById(id);
-            }
+            return dao.getVboxHostById(id);
+        }
+    }
+
+    @GET
+    public List<VboxHost> getVboxHosts() {
+        try (SqlSession session = DB.getSqlSession(true)) {
+            VboxHostDAO dao = session.getMapper(VboxHostDAO.class);
+            return dao.getVboxHosts();
         }
     }
 

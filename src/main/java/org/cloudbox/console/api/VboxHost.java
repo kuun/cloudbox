@@ -7,6 +7,9 @@ public class VboxHost {
     private int id;
     private String ip;
     private int port;
+    private String user;
+    private String passwd;
+    private boolean tls;
     private String name;
     private String desc;
 
@@ -34,6 +37,30 @@ public class VboxHost {
         this.port = port;
     }
 
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPasswd() {
+        return passwd;
+    }
+
+    public void setPasswd(String passwd) {
+        this.passwd = passwd;
+    }
+
+    public boolean isTls() {
+        return tls;
+    }
+
+    public void setTls(boolean tls) {
+        this.tls = tls;
+    }
+
     public String getName() {
         return name;
     }
@@ -56,6 +83,8 @@ public class VboxHost {
                 "id=" + id +
                 ", ip='" + ip + '\'' +
                 ", port=" + port +
+                ", user='" + user + '\'' +
+                ", tls=" + tls +
                 ", name='" + name + '\'' +
                 ", desc='" + desc + '\'' +
                 '}';
