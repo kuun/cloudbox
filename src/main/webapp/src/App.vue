@@ -25,7 +25,9 @@
     overflow-x: hidden;
     overflow-y: hidden;
     margin: 0;
-    background-color: #f5f7fa;
+  }
+  body {
+    background: url("assets/body-bg.jpg") repeat;
   }
 </style>
 
