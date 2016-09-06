@@ -1,0 +1,151 @@
+html body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin: 0;
+}
+
+/* style for header bar */
+.headerbar {
+  width: 100%;
+  height: 50px;
+  margin-left: 230px;
+  background-color: #1abc9c;
+  background: url("../image/header-bg.png");
+  -webkit-background-size: contain;
+  background-size: contain;
+  box-shadow: 2px 0 5px 0 rgba(0,0,0,1);
+  /*box-shadow: 0 2px 3px hsla(0,0%,7%,.1),0 0 0 1px hsla(0,0%,7%,.1);*/
+  z-index: 1000;
+}
+
+/* style for sidebar */
+#sidebar {
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  float: left;
+  width: 230px;
+  height: 100%;
+  color: #ffffff;
+  font-size: 16px;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                         not supported by any browser */
+}
+.sidebar-bg {
+  /*background-color: rgba(48, 62, 69, 0.8);*/
+}
+.brand {
+  height: 50px;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  float: left;
+  width: 230px;
+  /*background: #607D8B;*/
+  background: url("../image/sidebar-bg.png");
+  -webkit-background-size: contain;
+  background-size: contain;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,1);
+  z-index: 2000;
+}
+
+.menu-label {
+  margin-left: 4px;
+}
+
+.menu-toggle-state {
+  float: right;
+  margin-right: 6px;
+  font-size: 14px;
+}
+
+.menu {
+  width: 100%;
+  height: 42px;
+}
+
+.menu:hover {
+  color: #f9eae3;
+}
+
+.submenu {
+  height: 36px;
+}
+
+.menu-active {
+  color: #f9eae3;
+  background-color: #009688;
+  border-radius: 3px;
+}
+
+li > a {
+  display: block;
+  text-decoration: none;
+  color: #162643;
+  padding-left: 8px;
+  padding-top: 8px;
+  height: 100%;
+  cursor: default;
+}
+
+li > a:hover {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.submenu-group {
+  border-left: #CFD8DC dashed 1px;
+  margin-left: 16px;
+  margin-right: 5px;
+  padding-left: 5px;
+  font-size: 16px;
+}
+
+.submenu-bg {
+  background-color: rgba(57, 68, 74, 0.29);
+  overflow-y: hidden;
+}
+
+.submenu-expand {
+  max-height: 500px;
+  transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out; /* Firefox 4 */
+  -webkit-transition: all 0.5s ease-in-out; /* Safari, Chrome */
+}
+
+.submenu-expand.ng-hide {
+  max-height: 0;
+}
+
+/*style for level bar */
+#level-bar {
+  height: 30px;
+  width: 100%;
+  margin-left: 230px;
+  padding-left: 10px;
+}
+
+/* style for footer */
+footer {
+  background-color: #8950ff;
+  height: 20px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  margin-left: 230px;
+}
