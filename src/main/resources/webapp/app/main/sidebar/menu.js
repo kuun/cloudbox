@@ -5,7 +5,7 @@
 var sidebarMenus = [
   {
     label: 'Dashboard',
-    link: '!/dashboard',
+    link: '/dashboard',
     icon: 'fa-dashboard',
     isFold: true,
     isActive: true
@@ -15,38 +15,38 @@ var sidebarMenus = [
     isFold: true,
     subMenus: [
       {
-        label: 'Manage Address',
-        link: '!/dashboard',
+        label: 'Vbox Host',
+        link: '/vboxHost',
+        icon: 'fa-dashboard',
+        isActive: false
+      }, {
+        label: 'Edit Vbox Host',
+        link: '/editVboxHost',
         icon: 'fa-dashboard',
         isActive: false
       }, {
         label: 'Syslog',
-        link: '!/dashboard',
+        link: '/dashboard',
         icon: 'fa-dashboard',
         isActive: false
       }, {
         label: 'Syslog',
-        link: '!/dashboard',
+        link: '/dashboard',
         icon: 'fa-dashboard',
         isActive: false
       }, {
         label: 'Syslog',
-        link: '!/dashboard',
+        link: '/dashboard',
         icon: 'fa-dashboard',
         isActive: false
       }, {
         label: 'Syslog',
-        link: '!/dashboard',
+        link: '/dashboard',
         icon: 'fa-dashboard',
         isActive: false
       }, {
         label: 'Syslog',
-        link: '!/dashboard',
-        icon: 'fa-dashboard',
-        isActive: false
-      }, {
-        label: 'Syslog',
-        link: '!/dashboard',
+        link: '/dashboard',
         icon: 'fa-dashboard',
         isActive: false
       }
@@ -58,12 +58,12 @@ var sidebarMenus = [
     subMenus: [
       {
         label: 'Manage Address',
-        link: '!/dashboard',
+        link: '/dashboard',
         icon: 'fa-dashboard',
         isActive: false
       }, {
         label: 'Syslog',
-        link: '!/dashboard',
+        link: '/dashboard',
         icon: 'fa-dashboard',
         isActive: false
       }

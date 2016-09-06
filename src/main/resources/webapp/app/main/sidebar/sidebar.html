@@ -4,7 +4,7 @@
   <div id="sidebar" class="sidebar-bg">
     <ul ng-repeat="menu in $ctrl.menus">
       <li>
-        <a ng-class="['menu', {'menu-active': menu.isActive}]" ng-href="{{ menu.link }}" ng-click="$ctrl.toggle(menu)">
+        <a ng-class="['menu', {'menu-active': menu.isActive}]" ng-href="{{ menu.subMenus ? '' : '#!' + menu.link }}" ng-click="$ctrl.toggle(menu)">
             <span class="icon is-small" ng-if="menu.icon">
               <i ng-class="['fa', menu.icon]"></i>
             </span>
@@ -17,7 +17,7 @@
           <ul class="submenu-group">
             <li ng-repeat="subMenu in menu.subMenus">
               <a ng-class="['menu', 'submenu', {'menu-active': subMenu.isActive}]"
-                 ng-href="{{ subMenu.link }}" ng-click="$ctrl.toggle(subMenu)">
+                 ng-href="{{ '#!' + subMenu.link }}" ng-click="$ctrl.toggle(subMenu)">
                 <span class="menu-label">{{ subMenu.label }}</span>
               </a>
             </li>
