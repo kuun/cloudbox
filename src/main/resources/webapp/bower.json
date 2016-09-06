@@ -23,6 +23,7 @@
     "lodash": "^4.15.0",
     "angular-route": "^1.5.8",
     "angular-animate": "^1.5.8",
-    "angular-resource": "^1.5.8"
+    "angular-resource": "^1.5.8",
+    "ng-table": "^1.0.0"
   }
 }
