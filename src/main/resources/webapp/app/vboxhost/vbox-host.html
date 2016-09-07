@@ -1,3 +1,27 @@
 <div>
-  <h1>VBox Host</h1>
+  <script type="text/ng-template" id="headerCheckbox.html">
+    <input type="checkbox" ng-model="$ctrl.checkboxes.checked" class="select-all" value=""/>
+  </script>
+
+  <div class="btn-group tool-bar">
+    <button type="button" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i></button>
+    <button type="button" class="btn btn-default"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+    <button type="button" class="btn btn-default"><i class="fa fa-trash" aria-hidden="true"></i></button>
+    <button type="button" class="btn btn-default"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+  </div>
+
+  <table ng-table="$ctrl.tableParams" class="table table-bordered table-hover">
+    <celgroup>
+      <col width="25px"/>
+      <col width="80px"/>
+    </celgroup>
+    <tr ng-repeat="row in $data" ng-class="{'bg-success': $ctrl.checkboxes.items[row.id]}">
+      <td header="'headerCheckbox.html'" header-class="'bg-info'">
+        <input type="checkbox" ng-model="$ctrl.checkboxes.items[row.id]"/>
+      </td>
+      <td data-title="'#'" header-class="'bg-info'" sortable="'id'">{{row.id}}</td>
+      <td data-title="'Name'" header-class="'bg-info'" sortable="'name'">{{row.name}}</td>
+      <td data-title="'Age'" header-class="'bg-info'" sortable="'age'">{{row.age}}</td>
+    </tr>
+  </table>
 </div>

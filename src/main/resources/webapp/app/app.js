@@ -5,6 +5,7 @@ angular.module('cloudbox', [
   'ngAnimate',
   'ngRoute',
   'ngResource',
+  'ngTable',
   'sidebar',
   'dashboard',
   'vboxHost'
