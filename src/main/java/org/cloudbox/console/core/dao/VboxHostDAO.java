@@ -1,7 +1,7 @@
-package org.cloudbox.console.dao;
+package org.cloudbox.console.core.dao;
 
 import org.apache.ibatis.annotations.*;
-import org.cloudbox.console.api.VboxHost;
+import org.cloudbox.console.core.pojo.VBoxHost;
 
 import java.util.List;
 
@@ -10,15 +10,15 @@ import java.util.List;
  */
 public interface VboxHostDAO {
     @Select("SELECT * FROM vbox_host")
-    List<VboxHost> getVboxHosts();
+    List<VBoxHost> getVboxHosts();
 
     @Select("SELECT * FROM vbox_host WHERE id = #{id}")
-    VboxHost getVboxHostById(int id);
+    VBoxHost getVboxHostById(int id);
 
     @Insert("INSERT INTO vbox_host (ip, port, user, passwd, tls, name, desc) " +
             "VALUES (#{ip}, #{port}, #{user}, #{passwd}, #{tls}, #{name}, #{desc})")
     @Options(useGeneratedKeys = true, keyColumn = "id")
-    int createVboxHost(VboxHost host);
+    int createVboxHost(VBoxHost host);
 
     @Update("UPDATE vbox_host SET " +
             "ip = #{ip}, " +
@@ -29,7 +29,7 @@ public interface VboxHostDAO {
             "name = #{name}, " +
             "desc = #{desc} " +
             "WHERE id = #{id}")
-    int modifyVboxHost(VboxHost host);
+    int modifyVboxHost(VBoxHost host);
 
     @Delete("DELETE FROM vbox_host WHERE id=#{id}")
     int deleteVboxHost(int id);

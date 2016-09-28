@@ -23,6 +23,7 @@ dependencies {
     compile('commons-lang:commons-lang:2.6')
     compile group: 'org.mybatis', name: 'mybatis', version: '3.4.1'
     compile group: 'com.h2database', name: 'h2', version: '1.4.192'
+    compile group: 'com.google.guava', name: 'guava', version: '19.0'
 
     runtime('com.h2database:h2:1.4.190')
 

@@ -1,9 +1,9 @@
-package org.cloudbox.console.api;
+package org.cloudbox.console.core.pojo;
 
 /**
  * Created by kevin on 8/11/16.
  */
-public class VboxHost {
+public class VBoxHost {
     private int id;
     private String ip;
     private int port;
@@ -79,11 +79,10 @@ public class VboxHost {
 
     @Override
     public String toString() {
-        return "VboxHost{" +
+        return "VBoxHost{" +
                 "id=" + id +
                 ", ip='" + ip + '\'' +
                 ", port=" + port +
-                ", user='" + user + '\'' +
                 ", tls=" + tls +
                 ", name='" + name + '\'' +
                 ", desc='" + desc + '\'' +
