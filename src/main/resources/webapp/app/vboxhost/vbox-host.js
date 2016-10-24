@@ -3,9 +3,9 @@
  */
 (function () {
   var mod = angular.module('vboxHost', [])
+
   mod.controller('controller', VboxHostController)
   VboxHostController.$inject = ['NgTableParams']
-
   function VboxHostController(NgTableParams) {
     var self = this
 
@@ -17,6 +17,7 @@
         ]
     })
   }
+
   mod.component('vboxHost', {
     templateUrl: 'vboxhost/vbox-host.html',
     controller: VboxHostController
