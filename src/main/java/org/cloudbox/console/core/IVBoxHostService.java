@@ -1,5 +1,6 @@
 package org.cloudbox.console.core;
 
+import org.cloudbox.console.app.IAppService;
 import org.cloudbox.console.core.pojo.VBoxHost;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 /**
  * Created by kevin on 9/28/16.
  */
-public interface IVboxHostService {
+public interface IVBoxHostService extends IAppService {
     // add a vbox host to system
     VBoxHost addHost(VBoxHost host);
     // modify a vbox host in system

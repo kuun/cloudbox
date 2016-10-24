@@ -2,27 +2,41 @@ package org.cloudbox.console.core;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.cloudbox.console.core.pojo.VBoxHost;
+import org.cloudbox.console.exec.IExecService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.virtualbox_5_1.IVirtualBox;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * Created by kevin on 9/29/16.
  */
-class VboxManager {
-    private static final Logger log = LoggerFactory.getLogger(VboxManager.class);
+class VBoxManager {
+    private static final Logger log = LoggerFactory.getLogger(VBoxManager.class);
 
     private Map<Integer, VBox> boxes = new HashMap<>();
+    private List<VBox> unconnectedBoxes = new LinkedList<>();
     private ReadWriteLock lock = new ReentrantReadWriteLock();
+    private ScheduledExecutorService executor;
 
+    public VBoxManager(ScheduledExecutorService executor) {
+        executor.scheduleWithFixedDelay(
+                () -> {
 
-    void addVbox(VBoxHost host) {
+                },
+                2, 2, TimeUnit.SECONDS
+        );
+    }
+
+    void addVBox(VBoxHost host) {
         try {
             lock.writeLock().lock();
             VBox vbox = boxes.get(host.getId());
@@ -32,7 +46,13 @@ class VboxManager {
             }
             vbox = new VBox(host);
             boxes.put(host.getId(), vbox);
-            vbox.connect();
+            try {
+                vbox.connect();
+            } catch (Exception e) {
+                // add box to unconnected list, retry lately.
+                unconnectedBoxes.add(vbox);
+                throw e;
+            }
         } catch (Exception e) {
             log.warn("add vbox failed, error: {}", ExceptionUtils.getStackTrace(e));
         } finally {
@@ -40,7 +60,7 @@ class VboxManager {
         }
     }
 
-    void delVbox(int id) {
+    void delVBox(int id) {
         try {
             lock.writeLock().lock();
 
@@ -51,7 +71,7 @@ class VboxManager {
             }
             boxes.remove(id);
             vbox.disconnect();
-        } catch (Exception e){
+        } catch (Exception e) {
             log.warn("delete vbox failed, error: {}", ExceptionUtils.getStackTrace(e));
         } finally {
             lock.writeLock().unlock();

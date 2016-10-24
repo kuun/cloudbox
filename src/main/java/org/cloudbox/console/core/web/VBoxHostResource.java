@@ -1,7 +1,7 @@
 package org.cloudbox.console.core.web;
 
-import org.cloudbox.console.core.IVboxHostService;
-import org.cloudbox.console.core.VboxHostModule;
+import org.cloudbox.console.core.IVBoxHostService;
+import org.cloudbox.console.core.VBoxHostModule;
 import org.cloudbox.console.core.pojo.VBoxHost;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,18 +15,18 @@ import java.util.List;
  */
 @Path("/vbox/host")
 @Produces(MediaType.APPLICATION_JSON)
-public class VboxHostResource {
-    private static final Logger log = LoggerFactory.getLogger(VboxHostResource.class);
-    private static final IVboxHostService service = VboxHostModule.getService();
+public class VBoxHostResource {
+    private static final Logger log = LoggerFactory.getLogger(VBoxHostResource.class);
+    private static final IVBoxHostService service = VBoxHostModule.getService();
 
     @GET
     @Path("/{id}")
-    public VBoxHost getVboxHost(@PathParam("id") Integer id) {
+    public VBoxHost getVBoxHost(@PathParam("id") Integer id) {
         return service.getHostById(id);
     }
 
     @GET
-    public List<VBoxHost> getVboxHosts() {
+    public List<VBoxHost> getVBoxHosts() {
         return service.getHosts();
     }
 
