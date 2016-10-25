@@ -21,6 +21,14 @@ public class VBox {
         manager.connect(url, host.getUser(), host.getPasswd());
     }
 
+    public VBoxHost getHost() {
+        return host;
+    }
+
+    public void setHost(VBoxHost host) {
+        this.host = host;
+    }
+
     public void disconnect() {
         manager.disconnect();
     }
